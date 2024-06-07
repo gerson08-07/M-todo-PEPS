@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Nave from './components/Nave';
+import React from 'react';
 import VistaOperaciones from './components/VistaOperaciones';
-import VistaReportes from './components/VistaReportes';
 
 import './App.css';
 
@@ -11,16 +8,14 @@ function App() {
   
   return (
       
-    <Router>
+
       <div className='mx-auto h-full '>
-        <Nave />
-        <Routes>
-            <Route path='/' element={<VistaOperaciones />} />
-            <Route path='/reportes' element={<VistaReportes />} />
-        </Routes>
+        <div className='h-1/5 w-full sm:flex sm:justify-between justify:center items-center px-12 py-4'>
+          <p className='text-4xl font-semibold font-poppins'>Método PEPS</p>
+        </div>
+        <VistaOperaciones />
+        
       </div>
-      
-    </Router>
 
   );
 }

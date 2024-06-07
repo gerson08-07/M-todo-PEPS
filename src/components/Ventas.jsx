@@ -11,7 +11,6 @@ function Ventas({ sellItem, sales }) {
 
   return (
     <div>
-      <h2 className="text-xl font-bold">Ventas</h2>
       <form onSubmit={handleSubmit} className="mb-4">
         <input
           type="number"

@@ -40,8 +40,8 @@ function VistaOperaciones() {
     }
   };
 
-  const [selectedOperation, setSelectedOperation] = useState('');
-  const [selectedTable, setSelectedTable] = useState('');
+  const [selectedOperation, setSelectedOperation] = useState('opcion1');
+  const [selectedTable, setSelectedTable] = useState('opcion1');
 
   const comboOperations = (event) => {
     setSelectedOperation(event.target.value);
@@ -50,13 +50,12 @@ function VistaOperaciones() {
     setSelectedTable(event.target.value);
   };
 
-  const inventoryHeaders = ['Producto', 'Precio', 'Cantidad'];
+  const inventoryHeaders = ['Fechas', 'Cantidad', 'Precio'];
   const salesHeaders = ['Cantidad', 'Costo Total'];
-  const purchasesHeaders = ['Producto', 'Precio', 'Cantidad']; // Encabezados para las compras
 
   return (
     <div className='h-4/5 flex md:flex-row flex-col col-2 items-center'>
-      <div className='md:w-1/2 h-full p-20  flex flex-col'>
+      <div className='md:w-1/2 h-full p-20  flex flex-col gap-4'>
         <select
           value={selectedOperation}
           onChange={comboOperations}
@@ -70,7 +69,7 @@ function VistaOperaciones() {
         {selectedOperation === 'opcion2' && <Ventas sellItem={sellItem} sales={sales} />}
       </div>
 
-      <div className='w-1/2 flex p-20 h-full justify-center'>
+      <div className='w-1/2 flex p-20 h-full flex flex-col gap-4'>
         <select
           value={selectedTable}
           onChange={comboTables}
