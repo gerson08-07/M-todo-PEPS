@@ -37,7 +37,7 @@ function VistaOperaciones() {
     }
   };
 
-    
+    // Definimos un estado para almacenar la opción seleccionada
     const [selectedOption, setSelectedOption] = useState('');
 
     // Función que se ejecuta cuando el valor del combo box cambia
@@ -60,8 +60,25 @@ function VistaOperaciones() {
 
       </div>
 
-      <div className=''>
-        1
+      <div className='w-1/2 flex py-16 h-full justify-center'>
+          <table className="h-10 border-collapse border border-gray-400 ">
+            <thead>
+              <tr>
+                <th className="border border-gray-400 px-4 py-2">Producto</th>
+                <th className="border border-gray-400 px-4 py-2">Precio</th>
+                <th className="border border-gray-400 px-4 py-2">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              {inventory.map((item, index) => (
+                <tr key={index}>
+                  <td className="border border-gray-400 px-4 py-2">{item.name}</td>
+                  <td className="border border-gray-400 px-4 py-2">{item.price}</td>
+                  <td className="border border-gray-400 px-4 py-2">{item.quantity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
       </div>
         
     </div>
