@@ -37,7 +37,7 @@ function VistaOperaciones() {
     }
   };
 
-    // Definimos un estado para almacenar la opción seleccionada
+    
     const [selectedOption, setSelectedOption] = useState('');
 
     // Función que se ejecuta cuando el valor del combo box cambia
