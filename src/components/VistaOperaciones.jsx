@@ -40,10 +40,14 @@ function VistaOperaciones() {
     }
   };
 
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOperation, setSelectedOperation] = useState('');
+  const [selectedTable, setSelectedTable] = useState('');
 
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
+  const comboOperations = (event) => {
+    setSelectedOperation(event.target.value);
+  };
+  const comboTables = (event) => {
+    setSelectedTable(event.target.value);
   };
 
   const inventoryHeaders = ['Producto', 'Precio', 'Cantidad'];
@@ -52,25 +56,32 @@ function VistaOperaciones() {
 
   return (
     <div className='h-4/5 flex md:flex-row flex-col col-2 items-center'>
-      <div className='md:w-1/2 h-full py-16 px-28 flex flex-col'>
+      <div className='md:w-1/2 h-full p-20  flex flex-col'>
         <select
-          value={selectedOption}
-          onChange={handleSelectChange}
+          value={selectedOperation}
+          onChange={comboOperations}
           className="block border border-gray-300 rounded-lg h-8"
         >
           <option value="" disabled>Selecciona una opción</option>
           <option value="opcion1">Compras</option>
           <option value="opcion2">Ventas</option>
-          <option value="opcion3">kk</option>
         </select>
-        {selectedOption === 'opcion1' && <Compras addItem={addItem} />}
-        {selectedOption === 'opcion2' && <Ventas sellItem={sellItem} sales={sales} />}
+        {selectedOperation === 'opcion1' && <Compras addItem={addItem} />}
+        {selectedOperation === 'opcion2' && <Ventas sellItem={sellItem} sales={sales} />}
       </div>
 
-      <div className='w-1/2 flex py-16 h-full justify-center'>
-        {selectedOption === 'opcion1' && <CustomizedTables headers={inventoryHeaders} data={inventory} />}
-        {selectedOption === 'opcion2' && <CustomizedTables headers={salesHeaders} data={sales} />}
-        {selectedOption === 'opcion3' && <CustomizedTables headers={purchasesHeaders} data={purchases} />}
+      <div className='w-1/2 flex p-20 h-full justify-center'>
+        <select
+          value={selectedTable}
+          onChange={comboTables}
+          className="block border border-gray-300 rounded-lg h-8"
+        >
+          <option value="" disabled>Selecciona una opción</option>
+          <option value="opcion1">Inventario</option>
+          <option value="opcion2">Ventas</option>
+        </select>
+        {selectedTable === 'opcion1' && <CustomizedTables headers={inventoryHeaders} data={inventory} />}
+        {selectedTable === 'opcion2' && <CustomizedTables headers={salesHeaders} data={sales} />}
         
       </div>
     </div>
