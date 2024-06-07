@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Compras from './Compras';
 import Inventario from './Inventario';
 import Ventas from './Ventas';
+import CustomizedTables from './Tabla';
 
 function VistaOperaciones() {
   const [inventory, setInventory] = useState([]);
@@ -61,24 +62,8 @@ function VistaOperaciones() {
       </div>
 
       <div className='w-1/2 flex py-16 h-full justify-center'>
-          <table className="h-10 border-collapse border border-gray-400 ">
-            <thead>
-              <tr>
-                <th className="border border-gray-400 px-4 py-2">Producto</th>
-                <th className="border border-gray-400 px-4 py-2">Precio</th>
-                <th className="border border-gray-400 px-4 py-2">Cantidad</th>
-              </tr>
-            </thead>
-            <tbody>
-              {inventory.map((item, index) => (
-                <tr key={index}>
-                  <td className="border border-gray-400 px-4 py-2">{item.name}</td>
-                  <td className="border border-gray-400 px-4 py-2">{item.price}</td>
-                  <td className="border border-gray-400 px-4 py-2">{item.quantity}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+          <CustomizedTables data={inventory} />
       </div>
         
     </div>
