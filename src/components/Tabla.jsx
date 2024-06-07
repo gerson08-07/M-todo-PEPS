@@ -32,8 +32,7 @@ const useStyles = makeStyles({
   },
 });
 
-// Define el componente CustomizedTables que recibe el inventario como props
-export default function CustomizedTables({ data }) {
+export default function CustomizedTables({ headers, data }) {
   const classes = useStyles();
 
   return (
@@ -41,20 +40,17 @@ export default function CustomizedTables({ data }) {
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Producto</StyledTableCell>
-            <StyledTableCell align="right">Precio</StyledTableCell>
-            <StyledTableCell align="right">Cantidad</StyledTableCell>
+            {headers.map((header, index) => (
+              <StyledTableCell key={index}>{header}</StyledTableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* Mapea los datos del inventario y muestra cada fila en la tabla */}
-          {data.map((row, index) => (
-            <StyledTableRow key={index}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell>
-              <StyledTableCell align="right">{row.quantity}</StyledTableCell>
+          {data.map((row, rowIndex) => (
+            <StyledTableRow key={rowIndex}>
+              {Object.values(row).map((cell, cellIndex) => (
+                <StyledTableCell key={cellIndex}>{cell}</StyledTableCell>
+              ))}
             </StyledTableRow>
           ))}
         </TableBody>
