@@ -5,6 +5,7 @@ function Ventas({ sellItem, sales }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     sellItem(parseInt(quantity));
     setQuantity('');
   };

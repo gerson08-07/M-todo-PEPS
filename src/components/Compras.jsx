@@ -4,6 +4,8 @@ function Compras({ addItem }) {
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
